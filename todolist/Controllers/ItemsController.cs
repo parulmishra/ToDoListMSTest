@@ -62,6 +62,17 @@ namespace ToDoList.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
-
+        //[HttpGet, ActionName("Done")]
+        //public IActionResult DoneTask(int id)
+        //{
+        //    //var thisItem = db.Items.FirstOrDefault(items => items.ItemId == id);
+        //    ////db.Items.Update(thisItem.Done = 1);
+        //    //if (db.Items.thisItem.Done == false)
+        //    //{
+        //    //    db.Items.thisItem.Done = true;
+        //    //}
+        //    //db.SaveChanges();
+        //    //return RedirectToAction("Index");
+        //}
 	}
 }

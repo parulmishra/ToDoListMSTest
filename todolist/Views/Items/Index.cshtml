@@ -11,7 +11,15 @@
 <ul>
     @foreach(var listItem in Model)
     {
-        <li>@Html.DisplayFor(modelItem => listItem.Description) | @Html.ActionLink("Details", "Details", new { id = listItem.ItemId }) | @Html.ActionLink("Edit", "Edit", new { id = listItem.ItemId }) | @Html.ActionLink("Delete", "Delete", new { id = listItem.ItemId })</li>
-    }
+        <li>@Html.DisplayFor(modelItem => listItem.Description) | 
+	@Html.ActionLink("Details", "Details", new { id = listItem.ItemId }) | 
+	@Html.ActionLink("Edit", "Edit", new { id = listItem.ItemId }) | 
+	@Html.ActionLink("Delete", "Delete", new { id = listItem.ItemId }) | 
+	@Html.CheckBoxFor(modelItem => listItem.Done)
+	</li>
+<!--     <input type="checkbox" name="done"><label>Done</label> -->
+	}
 </ul>
+
+
 <p>@Html.ActionLink("Add new item", "Create")</p>
