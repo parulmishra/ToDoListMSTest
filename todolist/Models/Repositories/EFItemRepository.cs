@@ -10,6 +10,18 @@ namespace ToDoList.Models
 {
 	public class EFItemRepository : IItemRepository
     {
+		public EFItemRepository(ToDoListContext connection = null)
+		{
+			if (connection == null)
+			{
+				this.db = new ToDoListContext();
+			}
+			else
+			{
+				this.db = connection;
+			}
+		}
+
 		ToDoListContext db = new ToDoListContext();
 
 		public IQueryable<Item> Items
@@ -35,5 +47,13 @@ namespace ToDoList.Models
 			db.Items.Remove(item);
 			db.SaveChanges();
 		}
+        public void DeleteAll()
+        {
+            foreach(var item in db.Items)
+            {
+                db.Items.Remove(item);
+                db.SaveChanges();
+            }
+        }
     }
 }
